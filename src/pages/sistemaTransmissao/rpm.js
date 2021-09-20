@@ -22,7 +22,6 @@ const Rpm = () => {
   const [primeroMultiplicador, setPrimeroMultiplicador] = useState(0)
   const [segundoMultiplicador, setSegundoMultiplicador] = useState(0)
   const [denominador, setDenominador] = useState(0)
-  const [exibirResultado, setExibirResultado] = useState(false)
 
   const calcular = () => {
     if ((n2 && d1 && d2) || (n1 && d1 && d2) || (n1 && n2 && d2) || (n1 && n2 && d1)) {
@@ -68,8 +67,18 @@ const Rpm = () => {
 
   const renderizaResultado = () => {
     return (
-      <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <View style={{ flexDirection: 'row', }}>
+      <View style={styles.viewCalculos}>
+        <View style={styles.viewRow}>
+          <Divisao
+            numerador='n1'
+            denominador='n2' />
+          <Igual />
+          <Divisao
+            numerador='D2'
+            denominador='D1' />
+        </View>
+        <SetaPraBaixo />
+        <View style={styles.viewRow}>
           <Divisao
             numerador={`${n1 || 'n1'}`}
             denominador={`${n2 || 'n2'}`} />
@@ -79,14 +88,14 @@ const Rpm = () => {
             denominador={`${d1 || 'D1'}`} />
         </View>
         <SetaPraBaixo />
-        <View style={{ flexDirection: 'row', }}>
-          <Text style={{ textAlignVertical: 'center', fontSize: 17, marginLeft: 15 }}>{valorAprocurar} = </Text>
+        <View style={styles.viewRow}>
+          <Text style={styles.textValorAProcurarERsultado}>{valorAprocurar} = </Text>
           <Divisao
             numerador={`${primeroMultiplicador}.${segundoMultiplicador}`}
             denominador={`${denominador}`} />
         </View>
         <SetaPraBaixo />
-        <Text style={{ textAlignVertical: 'center', fontSize: 17, marginLeft: 15 }}>{valorAprocurar} = {resultado} RPM </Text>
+        <Text style={styles.textValorAProcurarERsultado}>{valorAprocurar} = {resultado} RPM </Text>
       </View >
     )
   }
@@ -94,9 +103,9 @@ const Rpm = () => {
   return (
     <ScrollView
       keyboardShouldPersistTaps='handled'>
-
       <View style={styles.container}>
-        <View style={{ flexDirection: 'row', marginBottom: 50 }}>
+        <View style={styles.viewFormulaUtilizada}>
+          <Text style={styles.textFormulaUtilizada}>Formula utilizada: </Text>
           <Divisao
             numerador='n1'
             denominador='n2' />
@@ -105,60 +114,75 @@ const Rpm = () => {
             numerador='D2'
             denominador='D1' />
         </View>
-        <View>
-          {resultado ?
-            renderizaResultado() : null}
-        </View>
-
+        <Text style={styles.textBold}>São necessários apenas 3 valores</Text>
         <View style={styles.viewInputs}>
-          <Text>N1</Text>
+          <Text>N1:</Text>
           <Input
             placeholder='Rotação polia motora'
             value={n1}
             onChangeText={(text) => setn1(text)}
             keyboardType="phone-pad"
           />
-          <Text>N2</Text>
+          <Text>N2:</Text>
           <Input
             value={n2}
             onChangeText={(text) => setn2(text)}
             placeholder='Rotação polia movida'
             keyboardType="phone-pad"
-
           />
-          <Text>D1</Text>
+          <Text>D1:</Text>
           <Input
             value={d1}
             onChangeText={(text) => setd1(text)}
             placeholder='Diametro polia motora'
             keyboardType="phone-pad"
-
           />
-          <Text>D2</Text>
+          <Text>D2:</Text>
           <Input
             value={d2}
             onChangeText={(text) => setd2(text)}
             placeholder='Diametro polia movida'
             keyboardType="phone-pad"
-
           />
-
           <Button
             text='calcular'
             onPress={() => calcular()} />
         </View>
-        <View style={styles.resultado}>
-          <Text style={styles.textResultado}>{resultado || ''}</Text>
+        <View>
+          {resultado ?
+            renderizaResultado() : null}
         </View>
       </View>
     </ScrollView >
   );
 };
 const styles = StyleSheet.create({
+  textValorAProcurarERsultado: {
+    textAlignVertical: 'center',
+    fontSize: 17,
+    marginLeft: 15
+  },
+  textFormulaUtilizada: {
+    textAlignVertical: 'center',
+    marginRight: 15,
+    fontSize: 15
+  },
+  viewCalculos: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 50
+  },
+  viewRow: {
+    flexDirection: 'row'
+  },
+  viewFormulaUtilizada: {
+    flexDirection: 'row',
+    marginVertical: 20,
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     paddingHorizontal: 20,
-
   },
   viewInputs: {
     flex: 1,
@@ -171,6 +195,9 @@ const styles = StyleSheet.create({
   },
   textResultado: {
     textAlign: 'center'
+  },
+  textBold: {
+    fontWeight: "bold"
   },
 
 })

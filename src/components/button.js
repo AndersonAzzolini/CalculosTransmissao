@@ -46,9 +46,9 @@ const buttonStyles = StyleSheet.create({
   },
 
   text: {
-    color: Cores.preto,
+    color: Cores.branco,
     fontSize: 15,
-
+    
   },
 })
 

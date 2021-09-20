@@ -1,8 +1,8 @@
 {
-    "verde": "#C0FF00",
+    "verde": "#021F59",
     "background": "#EEEEEE",
     "preto": "#000000",
     "cinzaEscuro": "#C0C0C0",
-    "branco": "#FFFFFF",
+    "branco": "#F2F2F2",
     "fundoLoader": "rgba(0, 0, 0, 0.7)"
 }
