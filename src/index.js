@@ -21,7 +21,7 @@ function App() {
           <Stack.Navigator initialRouteName="Home Page" headerMode='none'>
             <Stack.Screen name="Rpm" component={Rpm} />
             <Stack.Screen name="Home Page" component={HomePage} />
-            <Stack.Screen name="Periodo" component={Periodo} />
+            <Stack.Screen name="Período" component={Periodo} />
             <Stack.Screen name="Frequência" component={Frequencia} />
             <Stack.Screen name="Rotação" component={Rotacao} />
             <Stack.Screen name="Velocidade Angular" component={VelocidadeAngular} />

@@ -101,11 +101,12 @@ const Rpm = () => {
   }
 
   return (
-    <ScrollView
-      keyboardShouldPersistTaps='handled'>
+    <ScrollView>
       <View style={styles.container}>
         <View style={styles.viewFormulaUtilizada}>
           <Text style={styles.textFormulaUtilizada}>Formula utilizada: </Text>
+          <Text style={styles.textFormula}>N</Text>
+          <Igual />
           <Divisao
             numerador='n1'
             denominador='n2' />
@@ -115,33 +116,32 @@ const Rpm = () => {
             denominador='D1' />
         </View>
         <Text style={styles.textBold}>São necessários apenas 3 valores</Text>
+        <Text >N = Rotação (RPM)</Text>
+        <Text >D = Diâmetro da polia (m)</Text>
+
         <View style={styles.viewInputs}>
-          <Text>N1:</Text>
           <Input
-            placeholder='Rotação polia motora'
+            placeholder='RPM polia motora (n1)'
             value={n1}
             onChangeText={(text) => setn1(text)}
             keyboardType="phone-pad"
           />
-          <Text>N2:</Text>
           <Input
             value={n2}
             onChangeText={(text) => setn2(text)}
-            placeholder='Rotação polia movida'
+            placeholder='RPM polia movida (n2)'
             keyboardType="phone-pad"
           />
-          <Text>D1:</Text>
           <Input
             value={d1}
             onChangeText={(text) => setd1(text)}
-            placeholder='Diametro polia motora'
+            placeholder='Diâmetro polia motora (D1)'
             keyboardType="phone-pad"
           />
-          <Text>D2:</Text>
           <Input
             value={d2}
             onChangeText={(text) => setd2(text)}
-            placeholder='Diametro polia movida'
+            placeholder='Diâmetro polia movida (D2)'
             keyboardType="phone-pad"
           />
           <Button
@@ -198,6 +198,11 @@ const styles = StyleSheet.create({
   },
   textBold: {
     fontWeight: "bold"
+  },
+  textFormula: {
+    textAlignVertical: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 
 })

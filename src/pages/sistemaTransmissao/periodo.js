@@ -66,8 +66,8 @@ const Periodo = () => {
 
         </View>
         <Text style={styles.textBold}>π: 3.141592654</Text>
+        <Text>W = Velocidade Angular (rad/s)</Text>
         <View style={styles.viewInputs}>
-          <Text>W</Text>
           <Input
             placeholder='Valor de W'
             value={w}
@@ -109,12 +109,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    
+
   },
   viewInputs: {
     flex: 1,
     justifyContent: 'center',
-    alignContent: 'center'
+    alignContent: 'center',
+    marginTop:10
   },
   textFormula: {
     textAlignVertical: 'center',

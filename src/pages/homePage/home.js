@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import {
   ScrollView,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
 import Button from '../../components/button';
-import Input from '../../components/input';
 
 const HomePage = ({ navigation }) => {
 
@@ -19,8 +17,8 @@ const HomePage = ({ navigation }) => {
             text='Calcular RPM'
             onPress={() => navigation.navigate('Rpm')} />
           <Button
-            text='Calcular Periodo'
-            onPress={() => navigation.navigate('Periodo')} />
+            text='Calcular Período'
+            onPress={() => navigation.navigate('Período')} />
           <Button
             text='Calcular Frequência'
             onPress={() => navigation.navigate('Frequência')} />
