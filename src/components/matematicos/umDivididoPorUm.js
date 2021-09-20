@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   textNumerador: {
-    fontSize: 17, borderBottomWidth: 1, alignSelf: 'flex-start'
+    fontSize: 17,
+    borderBottomWidth: 1,
+    textAlign: 'center',
   },
   textDenominador: {
     textAlign: 'center',

@@ -5,13 +5,12 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
 } from 'react-native';
 import Button from '../../components/button';
+import SetaPraBaixo from '../../components/imagem';
 import Input from '../../components/input';
 import Igual from '../../components/matematicos/igual';
 import Divisao from '../../components/matematicos/umDivididoPorUm';
-import SetaPraBaixo from '../../assets/img/down-arrow.png'
 
 const Rpm = () => {
   const [d1, setd1] = useState(0)
@@ -79,18 +78,14 @@ const Rpm = () => {
             numerador={`${d2 || 'D2'}`}
             denominador={`${d1 || 'D1'}`} />
         </View>
-        <Image source={SetaPraBaixo}
-          style={{ marginVertical: 15 }} />
+        <SetaPraBaixo />
         <View style={{ flexDirection: 'row', }}>
           <Text style={{ textAlignVertical: 'center', fontSize: 17, marginLeft: 15 }}>{valorAprocurar} = </Text>
           <Divisao
             numerador={`${primeroMultiplicador}.${segundoMultiplicador}`}
             denominador={`${denominador}`} />
         </View>
-        <Image source={SetaPraBaixo}
-          style={{ marginVertical: 15 }} />
-
-        <Text>{'/U+1F813'}</Text>
+        <SetaPraBaixo />
         <Text style={{ textAlignVertical: 'center', fontSize: 17, marginLeft: 15 }}>{valorAprocurar} = {resultado} RPM </Text>
       </View >
     )
