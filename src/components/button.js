@@ -1,35 +1,29 @@
-import { Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { Text, TouchableOpacity, Image, StyleSheet, View, Dimensions } from 'react-native'
 import React, { useState } from 'react'
 import Cores from "../assets/cores.json";
 
 
 
 const Button = (props) => {
-  return (<TouchableOpacity
-    disabled={props.disabled}
-    activeOpacity={.5}
-    style={[buttonStyles.btn, props.style, props.disabled && buttonStyles.btnDisabled]}
-    onPress={props.onPress}>
-    {props.image &&
-      <Image style={buttonStyles.btnIcon}
-        source={props.image}
-      />
-    }
-    <Text style={[buttonStyles.text, props.styleText]}>{props.text}</Text>
-  </TouchableOpacity>)
+  return (
+    <TouchableOpacity
+      disabled={props.disabled}
+      activeOpacity={.5}
+      style={[buttonStyles.btn, props.style, props.disabled && buttonStyles.btnDisabled]}
+      onPress={props.onPress}>
+      <Text style={[buttonStyles.text, props.styleText]}>{props.text}</Text>
+    </TouchableOpacity>
+
+  )
 }
 
 const buttonStyles = StyleSheet.create({
   btnDisabled: {
     opacity: 0.5
   },
-  btnIcon: {
-    marginRight: 15,
-    width: 25,
-    height: 25,
-  },
   btn: {
-    height: 75,
+    height: 50,
+    borderRadius: 30,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -43,12 +37,13 @@ const buttonStyles = StyleSheet.create({
     shadowOpacity: 0.37,
     shadowRadius: 7.49,
     elevation: 12,
+    marginHorizontal: Dimensions.get('screen').width / 5
   },
 
   text: {
     color: Cores.branco,
     fontSize: 15,
-    
+
   },
 })
 
