@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -11,6 +12,8 @@ import SetaPraBaixo from '../../components/imagem';
 import Input from '../../components/input';
 import Igual from '../../components/matematicos/igual';
 import Divisao from '../../components/matematicos/umDivididoPorUm';
+import Tooltip from 'react-native-walkthrough-tooltip';
+import IconInterrogacao from '../../components/interrogacao';
 
 const Rotacao = () => {
   const [frequencia, setFrequencia] = useState(0)
@@ -18,8 +21,7 @@ const Rotacao = () => {
   const [w, setW] = useState(0)
   const [utilizarVelocidade, setUtilizarVelocidade] = useState(false)
   const [utilizarFrequencia, setUtilizarFrequencia] = useState(false)
-  const pi = 3.141592654
-
+  const [toolTipVisible, setToolTipVisible] = useState(false)
   const calcular = () => {
 
     if (frequencia) {
@@ -45,9 +47,8 @@ const Rotacao = () => {
     }
   }
 
-
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.scroll}>
       <View style={styles.container}>
         < View style={styles.viewOpcaoFormulas}>
           <Text style={styles.textBold}>Qual fórmula pretende utilizar?</Text>
@@ -57,7 +58,6 @@ const Rotacao = () => {
               label='Frequencia'
               onPress={(value) => defineFormula(value)}
               selected={utilizarFrequencia}
-
             />
             <RadioButton
               id='2'
@@ -94,7 +94,7 @@ const Rotacao = () => {
           <>
             <View style={styles.viewFormulaUtilizada}>
               <Text style={styles.textFormulaUtilizada}>Formula utilizada: </Text>
-              <Text style={styles.textFormula}>f</Text>
+              <Text style={styles.textFormula}>n</Text>
               <Igual />
               <Divisao
                 numerador='ω'
@@ -150,33 +150,48 @@ const Rotacao = () => {
                   denominador='2.π' />
               </View>
               <SetaPraBaixo />
-              <View style={styles.viewRow}>
-                <Text style={styles.textFormula}>f</Text>
-                <Igual />
-                <Divisao
-                  numerador={`${w} rad/s`}
-                  denominador={`2 rad`} />
-              </View>
+              <Pressable
+                onPress={() => setToolTipVisible(true)}
+              >
+                <View style={styles.viewRow}>
+                  <Text style={styles.textFormula}>f</Text>
+                  <Igual />
+                  <Tooltip
+                    isVisible={toolTipVisible}
+                    content={<Text>Recebemos o valor da velocidade em rad/s, cortamos com o π e em seguida realizamos a divisão </Text>}
+                    placement="top"
+                    onClose={() => setToolTipVisible(false)}
+                  >
+                    <Divisao
+                      numerador={`${w} rad/s`}
+                      denominador={`2 rad`} />
+                  </Tooltip>
+                  <View style={{ marginLeft: 10 }}>
+                    <IconInterrogacao />
+                  </View>
+                </View>
+              </Pressable>
               <SetaPraBaixo />
               <View style={styles.viewRow}>
                 <Text style={styles.textFormula}>f</Text>
                 <Igual />
                 <Text style={styles.textFormula}>{resultado} Hz</Text>
-
               </View>
             </View>
             : null
         }
       </View>
-    </ScrollView>
+    </ScrollView >
   );
 };
 const styles = StyleSheet.create({
-
+  scroll: {
+    flexGrow: 1,
+    justifyContent: 'center'
+  },
   container: {
     flex: 1,
     paddingHorizontal: 20,
-
   },
   viewCalculos: {
     justifyContent: 'center',

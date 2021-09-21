@@ -105,7 +105,7 @@ const Rpm = () => {
   }
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.scroll}>
       <View style={styles.container}>
         <View style={styles.viewFormulaUtilizada}>
           <Text style={styles.textFormulaUtilizada}>Formula utilizada: </Text>
@@ -161,6 +161,10 @@ const Rpm = () => {
   );
 };
 const styles = StyleSheet.create({
+  scroll: {
+    flexGrow: 1,
+    justifyContent: 'center'
+  },
   textValorAProcurarERsultado: {
     textAlignVertical: 'center',
     fontSize: 17,
@@ -190,8 +194,8 @@ const styles = StyleSheet.create({
   },
   viewInputs: {
     flex: 1,
-    justifyContent: 'center',
-    alignContent: 'center'
+    justifyContent: 'flex-start',
+    alignContent: 'center',
   },
   resultado: {
     flex: 1,

@@ -9,7 +9,7 @@ import Button from '../../components/button';
 const HomePage = ({ navigation }) => {
 
   return (
-    <ScrollView
+    <ScrollView contentContainerStyle={styles.scroll}
       keyboardShouldPersistTaps='handled'>
       <View style={styles.container}>
         <View style={styles.viewButtons}>
@@ -44,6 +44,10 @@ const HomePage = ({ navigation }) => {
   );
 };
 const styles = StyleSheet.create({
+  scroll: {
+    flexGrow: 1,
+    justifyContent: 'center'
+  },
   container: {
     flex: 1,
     paddingHorizontal: 20,

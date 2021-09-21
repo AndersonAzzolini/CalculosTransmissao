@@ -46,6 +46,7 @@ const Periodo = () => {
   }
   return (
     <ScrollView
+      contentContainerStyle={styles.scroll}
       keyboardShouldPersistTaps='handled'>
       <View style={styles.container}>
         <View style={styles.viewFormulaUtilizada}>
@@ -80,6 +81,10 @@ const Periodo = () => {
   );
 };
 const styles = StyleSheet.create({
+  scroll: {
+    flexGrow: 1,
+    justifyContent: 'center'
+  },
   textFormulaUtilizada: {
     textAlignVertical: 'center',
     marginRight: 15,
@@ -98,6 +103,7 @@ const styles = StyleSheet.create({
   },
   viewRow: {
     flexDirection: 'row',
+
   },
   container: {
     flex: 1,
@@ -106,7 +112,7 @@ const styles = StyleSheet.create({
   },
   viewInputs: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent:'flex-start',
     alignContent: 'center',
     marginTop: 10
   },

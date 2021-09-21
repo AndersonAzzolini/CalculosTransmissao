@@ -170,6 +170,10 @@ const RelacaoTransmissaoAdimensional = () => {
   );
 };
 const styles = StyleSheet.create({
+  scroll: {
+    flexGrow: 1,
+    justifyContent: 'center'
+  },
   container: {
     flex: 1,
     paddingHorizontal: 20,

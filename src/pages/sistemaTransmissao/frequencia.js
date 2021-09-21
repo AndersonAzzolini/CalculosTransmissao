@@ -45,7 +45,7 @@ const Frequencia = () => {
   }
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.scroll}>
       <View style={styles.container}>
         < View style={styles.viewOpcaoFormulas}>
           <Text style={styles.textBold}>Qual fórmula pretende utilizar?</Text>
@@ -175,7 +175,10 @@ const Frequencia = () => {
   );
 };
 const styles = StyleSheet.create({
-
+  scroll: {
+    flexGrow: 1,
+    justifyContent: 'flex-start'
+  },
   container: {
     flex: 1,
     paddingHorizontal: 20,
