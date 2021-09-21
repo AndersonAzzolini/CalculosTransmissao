@@ -45,7 +45,6 @@ const VelocidadeAngular = () => {
       if (!isNaN(variacaoAngular >= 0) && !isNaN(variacaoTempo >= 0)) {
         setResultado((parseFloat(variacaoAngular.replace(',', '.')) / parseFloat(variacaoTempo.replace(',', '.'))).toFixed(2).replace('.', ','))
       } else {
-        console.log('errp');
         Alert.alert(
           'Erro',
           'Verifique os valores informados, são obrigatatórios e devem ser números'
