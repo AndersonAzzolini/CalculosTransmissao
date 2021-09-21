@@ -29,7 +29,7 @@ const Periodo = () => {
           <Igual />
           <Divisao
             numerador='π.2'
-            denominador={`W.π`} />
+            denominador={`ω.π`} />
         </View>
         <SetaPraBaixo />
         <View style={styles.viewRow}>
@@ -61,12 +61,12 @@ const Periodo = () => {
             <Igual />
             <Divisao
               numerador='π.2'
-              denominador='W.π' />
+              denominador='ω.π' />
           </View>
 
         </View>
         <Text style={styles.textBold}>π: 3.141592654</Text>
-        <Text>W = Velocidade Angular (rad/s)</Text>
+        <Text>ω = Velocidade Angular (rad/s)</Text>
         <View style={styles.viewInputs}>
           <Input
             placeholder='Valor de W'

@@ -28,7 +28,7 @@ const buttonStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 15,
-    backgroundColor: Cores.verde,
+    backgroundColor: Cores.buttons,
     shadowColor: Cores.preto,
     shadowOffset: {
       width: 0,
