@@ -17,7 +17,7 @@ const Periodo = () => {
   const [resultado, setResultado] = useState(0)
 
   const calcular = () => {
-    setResultado((pi * 2 / (w * pi)).toFixed(2))
+    setResultado((2 / w).toFixed(3))
     renderizaResultado()
   }
 
@@ -28,22 +28,16 @@ const Periodo = () => {
           <Text style={styles.textFormula}>T </Text>
           <Igual />
           <Divisao
-            numerador='π.2'
-            denominador={`ω.π`} />
+            numerador='2.π'
+            denominador={`ω`} />
         </View>
         <SetaPraBaixo />
         <View style={styles.viewRow}>
           <Text style={styles.textFormula}>T </Text>
           <Igual />
           <Divisao
-            numerador='π.2'
-            denominador={`${w}.π`} />
-        </View>
-        <SetaPraBaixo />
-        <View style={styles.viewRow}>
-          <Text style={styles.textFormula}>T </Text>
-          <Igual />
-          <Text style={{ fontSize: 18 }}>{`${w}.2`}</Text>
+            numerador='2 rad'
+            denominador={`${w} rad/s`} />
         </View>
         <SetaPraBaixo />
         <Text style={styles.textFormula}>T = {resultado}s</Text>
@@ -60,8 +54,8 @@ const Periodo = () => {
             <Text style={styles.textFormula}>T </Text>
             <Igual />
             <Divisao
-              numerador='π.2'
-              denominador='ω.π' />
+              numerador='2.π'
+              denominador='ω' />
           </View>
 
         </View>
@@ -115,7 +109,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignContent: 'center',
-    marginTop:10
+    marginTop: 10
   },
   textFormula: {
     textAlignVertical: 'center',
