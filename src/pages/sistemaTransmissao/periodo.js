@@ -17,7 +17,7 @@ const Periodo = () => {
   const [resultado, setResultado] = useState(0)
 
   const calcular = () => {
-    setResultado((2 / w).toFixed(3))
+    setResultado((2 / w.replace(',', '.')).toFixed(3).replace('.', ','))
     renderizaResultado()
   }
 
@@ -59,7 +59,6 @@ const Periodo = () => {
           </View>
 
         </View>
-        <Text style={styles.textBold}>π: 3.141592654</Text>
         <Text>ω = Velocidade Angular (rad/s)</Text>
         <View style={styles.viewInputs}>
           <Input

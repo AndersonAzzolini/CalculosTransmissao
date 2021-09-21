@@ -22,10 +22,10 @@ const Frequencia = () => {
 
   const calcular = () => {
     if (periodo) {
-      setResultado(1 / periodo)
+      setResultado((1 / parseFloat(periodo.replace(',', '.'))).toFixed(2).replace('.', ','))
     }
     if (w) {
-      setResultado((w / 2).toFixed(2))
+      setResultado((parseFloat(w.replace(',', '.')) / 2).toFixed(2).replace('.', ','))
     }
   }
 

@@ -32,19 +32,19 @@ const Rpm = () => {
         )
       }
       if (!n1) {
-        setResultado(((n2 * d2) / d1).toFixed(2));
+        setResultado(((retiraVirgula(n2) * retiraVirgula(d2)) / retiraVirgula(d1)).toFixed(2).replace('.', ','));
         setValorAProcurar('n1')
         defineValores(n2, d2, d1)
       } else if (!n2) {
-        setResultado(((n1 * d1) / d2).toFixed(2));
+        setResultado(((retiraVirgula(n1) * retiraVirgula(d1)) / retiraVirgula(d2)).toFixed(2).replace('.', ','));
         setValorAProcurar('n2')
         defineValores(n1, d1, d2)
       } else if (!d1) {
-        setResultado(((d2 * n2) / n1).toFixed(2));
+        setResultado(((retiraVirgula(d2) * retiraVirgula(n2)) / retiraVirgula(n1)).toFixed(2).replace('.', ','));
         setValorAProcurar('D1')
         defineValores(d2, n2, n1)
       } else if (!d2) {
-        setResultado(((d1 * n1) / n2).toFixed(2));
+        setResultado(((retiraVirgula(d1) * retiraVirgula(n1)) / retiraVirgula(n2)).toFixed(2).replace('.', ','));
         setValorAProcurar('D2')
         defineValores(d1, n1, n2)
       }
@@ -56,6 +56,10 @@ const Rpm = () => {
       )
     }
 
+  }
+
+  const retiraVirgula = (value) => {
+    return value.replace(',', '.')
   }
 
   const defineValores = (value1, value2, value3) => {
