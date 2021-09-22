@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -11,6 +12,8 @@ import { RadioButton } from 'react-native-radio-buttons-group';
 import Igual from '../../components/matematicos/igual';
 import Divisao from '../../components/matematicos/umDivididoPorUm';
 import SetaPraBaixo from '../../components/imagem';
+import Tooltip from 'react-native-walkthrough-tooltip';
+import IconInterrogacao from '../../components/interrogacao';
 
 const Frequencia = () => {
   const [periodo, setPeriodo] = useState(0)
@@ -18,7 +21,7 @@ const Frequencia = () => {
   const [resultado, setResultado] = useState(0)
   const [utilizarPeriodo, setUtilizarPeriodo] = useState(false)
   const [utilizarVelocidade, setUtilizarVelocidade] = useState(false)
-  const pi = 3.141592654
+  const [toolTipVisible, setToolTipVisible] = useState(false)
 
   const calcular = () => {
     if (periodo) {
@@ -163,19 +166,30 @@ const Frequencia = () => {
                   denominador='2.π' />
               </View>
               <SetaPraBaixo />
-              <View style={styles.viewRow}>
-                <Text style={styles.textFormula}>f</Text>
-                <Igual />
-                <Divisao
-                  numerador={`${w} rad/s`}
-                  denominador={`2 rad`} />
-              </View>
+              <Pressable
+                onPress={() => setToolTipVisible(true)}>
+                <Tooltip
+                  isVisible={toolTipVisible}
+                  content={<Text>FUNÇAO DA ADRisdasfsa </Text>}
+                  placement="top"
+                  onClose={() => setToolTipVisible(false)}>
+                  <View style={styles.viewRow}>
+                    <Text style={styles.textFormula}>f</Text>
+                    <Igual />
+                    <Divisao
+                      numerador={`${w} rad/s`}
+                      denominador={`2 rad`} />
+                    <View style={styles.viewBalao}>
+                      <IconInterrogacao />
+                    </View>
+                  </View>
+                </Tooltip>
+              </Pressable>
               <SetaPraBaixo />
               <View style={styles.viewRow}>
                 <Text style={styles.textFormula}>f</Text>
                 <Igual />
                 <Text style={styles.textFormula}>{resultado} Hz</Text>
-
               </View>
             </View>
             : null
@@ -221,6 +235,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginVertical: 20,
     justifyContent: 'center',
+  },
+  viewBalao: {
+    marginLeft: 10
   },
   resultado: {
     flex: 1,

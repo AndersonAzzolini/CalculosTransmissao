@@ -111,7 +111,6 @@ const Rotacao = () => {
                 <View style={styles.viewTextInputs}>
                   <Text style={styles.textInputs}>Valor de ω:</Text>
                 </View>
-
                 <Input
                   value={w}
                   onChangeText={(text) => setW(text)}
