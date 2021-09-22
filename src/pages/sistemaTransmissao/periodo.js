@@ -62,12 +62,16 @@ const Periodo = () => {
         </View>
         <Text>ω = Velocidade Angular (rad/s)</Text>
         <View style={styles.viewInputs}>
-          <Input
-            placeholder='Valor de W'
-            value={w}
-            onChangeText={(text) => setW(text)}
-            keyboardType="phone-pad"
-          />
+          <View style={styles.viewRow}>
+            <View style={styles.viewTextInputs}>
+              <Text style={styles.textInputs}>Valor de ω: </Text>
+            </View>
+            <Input
+              value={w}
+              onChangeText={(text) => setW(text)}
+              keyboardType="phone-pad"
+            />
+          </View>
           <Button
             text='calcular'
             onPress={() => calcular()} />
@@ -85,11 +89,8 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center'
   },
-  textFormulaUtilizada: {
-    textAlignVertical: 'center',
-    marginRight: 15,
-    fontSize: 15,
-
+  viewTextInputs: {
+    justifyContent: 'space-around'
   },
   viewFormulaUtilizada: {
     flexDirection: 'row',
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
   },
   viewInputs: {
     flex: 1,
-    justifyContent:'flex-start',
+    justifyContent: 'flex-start',
     alignContent: 'center',
     marginTop: 10
   },
@@ -128,7 +129,14 @@ const styles = StyleSheet.create({
   textResultado: {
     textAlign: 'center'
   },
+  textInputs: {
+    marginRight: 10,
+    fontWeight: 'bold'
+  },
+  textFormulaUtilizada: {
+    textAlignVertical: 'center',
+    marginRight: 15,
+    fontSize: 15,
+  },
 })
-
-
 export default Periodo

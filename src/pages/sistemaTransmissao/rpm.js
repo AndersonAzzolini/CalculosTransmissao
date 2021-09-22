@@ -122,32 +122,41 @@ const Rpm = () => {
         <Text style={styles.textBold}>São necessários apenas 3 valores</Text>
         <Text >N = Rotação (RPM)</Text>
         <Text >D = Diâmetro da polia (m)</Text>
-
         <View style={styles.viewInputs}>
-          <Input
-            placeholder='RPM polia motora (n1)'
-            value={n1}
-            onChangeText={(text) => setn1(text)}
-            keyboardType="phone-pad"
-          />
-          <Input
-            value={n2}
-            onChangeText={(text) => setn2(text)}
-            placeholder='RPM polia movida (n2)'
-            keyboardType="phone-pad"
-          />
-          <Input
-            value={d1}
-            onChangeText={(text) => setd1(text)}
-            placeholder='Diâmetro polia motora (D1)'
-            keyboardType="phone-pad"
-          />
-          <Input
-            value={d2}
-            onChangeText={(text) => setd2(text)}
-            placeholder='Diâmetro polia movida (D2)'
-            keyboardType="phone-pad"
-          />
+          <View style={styles.viewRow}>
+
+            <View style={styles.viewTextInputs}>
+              <Text style={styles.textInputs}>RPM polia motora (n1):</Text>
+              <Text style={styles.textInputs}>RPM polia movida (n2):</Text>
+              <Text style={styles.textInputs}>Diâmetro polia motora (D1):</Text>
+              <Text style={styles.textInputs}>Diâmetro polia movida (D2):</Text>
+
+            </View>
+            <View>
+
+              <Input
+                value={n1}
+                onChangeText={(text) => setn1(text)}
+                keyboardType="phone-pad"
+              />
+              <Input
+                value={n2}
+                onChangeText={(text) => setn2(text)}
+                keyboardType="phone-pad"
+              />
+              <Input
+                value={d1}
+                onChangeText={(text) => setd1(text)}
+                keyboardType="phone-pad"
+              />
+              <Input
+                value={d2}
+                onChangeText={(text) => setd2(text)}
+                keyboardType="phone-pad"
+              />
+            </View>
+          </View>
+
           <Button
             text='calcular'
             onPress={() => calcular()} />
@@ -165,6 +174,50 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center'
   },
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
+  viewCalculos: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 50
+  },
+  viewRow: {
+    flexDirection: 'row'
+  },
+  viewTextInputs: {
+    justifyContent: 'space-around'
+  },
+  viewFormulaUtilizada: {
+    flexDirection: 'row',
+    marginVertical: 20,
+    justifyContent: 'center',
+  },
+  viewInputs: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignContent: 'center',
+    marginTop:15
+  },
+  resultado: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  textResultado: {
+    textAlign: 'center'
+  },
+  textInputs: {
+    marginRight: 10
+  },
+  textBold: {
+    fontWeight: "bold"
+  },
+  textFormula: {
+    textAlignVertical: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
   textValorAProcurarERsultado: {
     textAlignVertical: 'center',
     fontSize: 17,
@@ -175,43 +228,7 @@ const styles = StyleSheet.create({
     marginRight: 15,
     fontSize: 15
   },
-  viewCalculos: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 50
-  },
-  viewRow: {
-    flexDirection: 'row'
-  },
-  viewFormulaUtilizada: {
-    flexDirection: 'row',
-    marginVertical: 20,
-    justifyContent: 'center',
-  },
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
-  },
-  viewInputs: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignContent: 'center',
-  },
-  resultado: {
-    flex: 1,
-    justifyContent: 'center'
-  },
-  textResultado: {
-    textAlign: 'center'
-  },
-  textBold: {
-    fontWeight: "bold"
-  },
-  textFormula: {
-    textAlignVertical: 'center',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
+
 
 })
 

@@ -49,18 +49,16 @@ const VelocidadePeriferica = () => {
               denominador={'30'}
             />
           </View>
+          <Text>n = Rotação (rpm)</Text>
+          <Text>r = Raio (m)</Text>
+          <Text>π = 3.141592654 (rad)</Text>
           <View style={styles.viewInputs} >
-            <Text>n = Rotação (rpm)</Text>
-            <Text>r = Raio (m)</Text>
-            <Text>π = 3.141592654 (rad)</Text>
             <View style={styles.viewRow}>
-              <View style={{ justifyContent:'space-around'}}>
-
-                <Text style={{  marginRight: 10 }}>Valor da rotação (rpm):</Text>
-                <Text style={{  marginRight: 10 }}>Valor do raio (m):</Text>
+              <View style={styles.viewTextInputs}>
+                <Text style={styles.textInputs}>Valor da rotação (rpm):</Text>
+                <Text style={styles.textInputs}>Valor do raio (m):</Text>
               </View>
               <View>
-
                 <Input
                   value={n}
                   onChangeText={(text) => setN(text.replace(',', '.'))}
@@ -168,10 +166,14 @@ const styles = StyleSheet.create({
   viewBalao: {
     marginLeft: 10
   },
+  viewTextInputs: {
+    justifyContent: 'space-around'
+  },
   viewInputs: {
     flex: 1,
     justifyContent: 'flex-start',
     alignContent: 'center',
+    marginTop: 15
   },
   viewOpcaoFormulas: {
     marginVertical: 15
@@ -190,6 +192,9 @@ const styles = StyleSheet.create({
   },
   textResultado: {
     textAlign: 'center'
+  },
+  textInputs: {
+    marginRight: 10
   },
   textOpcaoFormulas: {
     marginVertical: 5

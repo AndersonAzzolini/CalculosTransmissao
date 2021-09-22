@@ -22,10 +22,10 @@ const Frequencia = () => {
 
   const calcular = () => {
     if (periodo) {
-      setResultado((1 / parseFloat(periodo.replace(',', '.'))).toFixed(2).replace('.', ','))
+      setResultado((1 / periodo).toFixed(2).replace('.', ','))
     }
     if (w) {
-      setResultado((parseFloat(w.replace(',', '.')) / 2).toFixed(2).replace('.', ','))
+      setResultado((w / 2).toFixed(2).replace('.', ','))
     }
   }
 
@@ -76,14 +76,20 @@ const Frequencia = () => {
                 numerador='1'
                 denominador='T' />
             </View>
+            <Text>T = Periodo (s)</Text>
             <View style={styles.viewInputs}>
-              <Text>T = Periodo (s)</Text>
-              <Input
-                placeholder='Valor do Periodo'
-                value={periodo}
-                onChangeText={(text) => setPeriodo(text)}
-                keyboardType="phone-pad"
-              />
+              <View style={styles.viewRow}>
+                <View style={styles.viewTextInputs}>
+                  <Text style={styles.textInputs}>Valor do Periodo:</Text>
+                </View>
+
+                <Input
+                  value={periodo}
+                  onChangeText={(text) => setPeriodo(text.replace(',', '.'))}
+                  keyboardType="phone-pad"
+                />
+              </View>
+
               <Button
                 text='calcular'
                 onPress={() => calcular()} />
@@ -100,14 +106,18 @@ const Frequencia = () => {
                 numerador='ω'
                 denominador='2.π' />
             </View>
+            <Text>ω = Velocidade Angular (rad/s)</Text>
             <View style={styles.viewInputs} >
-              <Text>ω = Velocidade Angular (rad/s)</Text>
-              <Input
-                placeholder='Valor de ω (rad/s)'
-                value={w}
-                onChangeText={(text) => setW(text)}
-                keyboardType="phone-pad"
-              />
+              <View style={styles.viewRow}>
+                <View style={styles.viewTextInputs}>
+                  <Text style={styles.textInputs}>Valor de ω:</Text>
+                </View>
+                <Input
+                  value={w}
+                  onChangeText={(text) => setW(text)}
+                  keyboardType="phone-pad"
+                />
+              </View>
               <Button
                 text='calcular'
                 onPress={() => calcular()} />
@@ -189,6 +199,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 50
   },
+  viewTextInputs: {
+    justifyContent: 'space-around'
+  },
   viewRow: {
     flexDirection: 'row',
   },
@@ -196,6 +209,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignContent: 'center',
+    marginTop: 10
   },
   viewOpcaoFormulas: {
     marginVertical: 15
@@ -227,6 +241,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     marginBottom: 10
+  },
+  textInputs: {
+    marginRight: 10,
+    fontWeight: 'bold'
   },
   textFormula: {
     textAlignVertical: 'center',

@@ -43,7 +43,7 @@ const VelocidadeAngular = () => {
   const calcular = () => {
     if (utilizarVariacao) {
       if (!isNaN(variacaoAngular >= 0) && !isNaN(variacaoTempo >= 0)) {
-        setResultado((parseFloat(variacaoAngular.replace(',', '.')) / parseFloat(variacaoTempo.replace(',', '.'))).toFixed(2).replace('.', ','))
+        setResultado((variacaoAngular / variacaoTempo).toFixed(2).replace('.', ','))
       } else {
         Alert.alert(
           'Erro',
@@ -53,7 +53,7 @@ const VelocidadeAngular = () => {
     }
     if (utilizarVelocidade) {
       if ((!isNaN(n) && n)) {
-        setResultado((parseFloat(n.replace(',', '.')) / 30).toFixed(2).replace('.', ','))
+        setResultado((n / 30).toFixed(2).replace('.', ','))
       } else {
         Alert.alert(
           'Erro',
@@ -96,21 +96,28 @@ const VelocidadeAngular = () => {
               />
               <Text style={styles.textFormula}></Text>
             </View>
+            <Text>Δφ = Variação Angular (rad/s)</Text>
+            <Text>Δt = Variação de Tempo (s)</Text>
             <View style={styles.viewInputs}>
-              <Text>Δφ = Variação Angular (rad/s)</Text>
-              <Text>Δt = Variação de Tempo (s)</Text>
-              <Input
-                placeholder='Valor da variação angular (rad/s)'
-                value={variacaoAngular}
-                onChangeText={(text) => setVariacaoAngular(text)}
-                keyboardType="phone-pad"
-              />
-              <Input
-                placeholder='Valor da variação de tempo (s)'
-                value={variacaoTempo}
-                onChangeText={(text) => setVariacaoTempo(text)}
-                keyboardType="phone-pad"
-              />
+              <View style={styles.viewRow}>
+                <View style={styles.viewTextInputs}>
+                  <Text style={styles.textInputs}>Variação angular (rad/s):</Text>
+                  <Text style={styles.textInputs}>Variação de tempo (s):</Text>
+                </View>
+
+                <View>
+                  <Input
+                    value={variacaoAngular}
+                    onChangeText={(text) => setVariacaoAngular(text.replace(',', '.'))}
+                    keyboardType="phone-pad"
+                  />
+                  <Input
+                    value={variacaoTempo}
+                    onChangeText={(text) => setVariacaoTempo(text.replace(',', '.'))}
+                    keyboardType="phone-pad"
+                  />
+                </View>
+              </View>
               <Button
                 text='calcular'
                 onPress={() => calcular()} />
@@ -128,18 +135,23 @@ const VelocidadeAngular = () => {
                 denominador={'30'}
               />
             </View>
+            <Text>n = Rotação (rpm)</Text>
             <View style={styles.viewInputs} >
-              <Text>n = Rotação (rpm)</Text>
-              <Input
-                placeholder='Valor de n (rpm)'
-                value={n}
-                onChangeText={(text) => setN(text)}
-                keyboardType="phone-pad"
-              />
+              <View style={styles.viewRow}>
+                <View style={styles.viewTextInputs}>
+                  <Text style={styles.textInputs}>Valor de n:</Text>
+                </View>
+                <Input
+                  value={n}
+                  onChangeText={(text) => setN(text)}
+                  keyboardType="phone-pad"
+                />
+              </View>
               <Button
                 text='calcular'
                 onPress={() => calcular()} />
             </View>
+
           </>
         }
         {
@@ -247,6 +259,9 @@ const styles = StyleSheet.create({
   viewRow: {
     flexDirection: 'row',
   },
+  viewTextInputs: {
+    justifyContent: 'space-around'
+  },
   viewBalao: {
     marginLeft: 10
   },
@@ -254,6 +269,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignContent: 'center',
+    marginTop: 15
   },
   viewOpcaoFormulas: {
     marginVertical: 15
@@ -272,6 +288,10 @@ const styles = StyleSheet.create({
   },
   textResultado: {
     textAlign: 'center'
+  },
+  textInputs: {
+    marginRight: 10,
+    fontWeight:'bold'
   },
   textOpcaoFormulas: {
     marginVertical: 5

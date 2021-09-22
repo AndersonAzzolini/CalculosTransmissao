@@ -76,14 +76,19 @@ const Rotacao = () => {
               <Igual />
               <Text style={styles.textFormula}>60.f</Text>
             </View>
+            <Text>f = Frêquencia (Hz)</Text>
             <View style={styles.viewInputs}>
-              <Text>f = Frêquencia (Hz)</Text>
-              <Input
-                placeholder='Valor da Frêquencia (Hz)'
-                value={frequencia}
-                onChangeText={(text) => setFrequencia(text)}
-                keyboardType="phone-pad"
-              />
+              <View style={styles.viewRow}>
+                <View style={styles.viewTextInputs}>
+                  <Text style={styles.textInputs}>Valor da Frêquencia:</Text>
+                </View>
+                <Input
+                  value={frequencia}
+                  onChangeText={(text) => setFrequencia(text)}
+                  keyboardType="phone-pad"
+                />
+              </View>
+
               <Button
                 text='calcular'
                 onPress={() => calcular()} />
@@ -100,14 +105,19 @@ const Rotacao = () => {
                 numerador='ω'
                 denominador='2.π' />
             </View>
+            <Text>ω = Velocidade Angular (rad/s)</Text>
             <View style={styles.viewInputs} >
-              <Text>ω = Velocidade Angular (rad/s)</Text>
-              <Input
-                placeholder='Valor de ω (rad/s)'
-                value={w}
-                onChangeText={(text) => setW(text)}
-                keyboardType="phone-pad"
-              />
+              <View style={styles.viewRow}>
+                <View style={styles.viewTextInputs}>
+                  <Text style={styles.textInputs}>Valor de ω:</Text>
+                </View>
+
+                <Input
+                  value={w}
+                  onChangeText={(text) => setW(text)}
+                  keyboardType="phone-pad"
+                />
+              </View>
               <Button
                 text='calcular'
                 onPress={() => calcular()} />
@@ -209,6 +219,9 @@ const styles = StyleSheet.create({
   viewOpcaoFormulas: {
     marginVertical: 15
   },
+  viewTextInputs: {
+    justifyContent: 'space-around'
+  },
   viewCheckBox: {
     marginVertical: 5,
   },
@@ -220,6 +233,10 @@ const styles = StyleSheet.create({
   resultado: {
     flex: 1,
     justifyContent: 'center'
+  },
+  textInputs: {
+    marginRight: 10,
+    fontWeight: 'bold'
   },
   textResultado: {
     textAlign: 'center'
