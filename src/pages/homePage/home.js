@@ -4,40 +4,38 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import Button from '../../components/button';
+import CardHomePage from '../../components/cardHomePage';
 
 const HomePage = ({ navigation }) => {
 
   return (
-    <ScrollView contentContainerStyle={styles.scroll}
-      keyboardShouldPersistTaps='handled'>
+    <ScrollView contentContainerStyle={styles.scroll}>
       <View style={styles.container}>
         <View style={styles.viewButtons}>
-          <Button
+          <CardHomePage
             text='Calcular RPM'
             onPress={() => navigation.navigate('Rpm')} />
-          <Button
+          <CardHomePage
             text='Calcular Período'
             onPress={() => navigation.navigate('Período')} />
-          <Button
+          <CardHomePage
             text='Calcular Frequência'
             onPress={() => navigation.navigate('Frequência')} />
-          <Button
+          <CardHomePage
             text='Calcular Rotação'
             onPress={() => navigation.navigate('Rotação')} />
-          <Button
+          <CardHomePage
             text='Calcular Velocidade Angular'
             onPress={() => navigation.navigate('Velocidade Angular')} />
-          <Button
+          <CardHomePage
             text='Calcular Velocidade Periférica'
             onPress={() => navigation.navigate('Velocidade Periférica')} />
-          <Button
+          <CardHomePage
             text='Calcular Relação de Transmissão'
             onPress={() => navigation.navigate('Relação de Transmissão')} />
-          <Button
+          <CardHomePage
             text='Calcular Torque'
             onPress={() => navigation.navigate('Torque')} />
-
         </View>
       </View>
     </ScrollView>
@@ -46,17 +44,15 @@ const HomePage = ({ navigation }) => {
 const styles = StyleSheet.create({
   scroll: {
     flexGrow: 1,
-    justifyContent: 'center'
   },
   container: {
     flex: 1,
     paddingHorizontal: 20,
-
+    backgroundColor:'#021F59'
   },
   viewButtons: {
     flex: 1,
-    justifyContent: 'center',
-    alignContent: 'center'
+
   },
 })
 

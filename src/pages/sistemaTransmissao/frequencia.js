@@ -58,7 +58,6 @@ const Frequencia = () => {
               label='Período'
               onPress={(value) => defineFormula(value)}
               selected={utilizarPeriodo}
-
             />
             <RadioButton
               id='2'
