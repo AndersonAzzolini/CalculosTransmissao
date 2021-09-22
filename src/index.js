@@ -16,7 +16,7 @@ const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <View style={{ flex: 1, backgroundColor: '#EEEEEE' }}>
+    <View style={{ flex: 1, backgroundColor: '#021F59' }}>
         <NavigationContainer >
           <Stack.Navigator initialRouteName="Home Page" headerMode='none'>
             <Stack.Screen name="Rpm" component={Rpm} />
