@@ -18,11 +18,13 @@ const Input = forwardRef(({ placeholderTextColor, style, ...props }, ref) => {
 })
 const inputStyles = StyleSheet.create({
     input: {
+        minWidth:150,
         borderBottomWidth: 1,
         color: Cores.preto,
         height: 30,
         marginVertical: 5,
         padding: 0,
+        textAlign:'center'
     },
 })
 
